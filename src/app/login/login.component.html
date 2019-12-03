@@ -1,0 +1,20 @@
+<p>login works!</p>
+
+<div class="alert alert-danger"
+    role="alert"
+    *ngIf="errorMessage">
+    {{errorMessage}}
+</div>
+
+
+<form [formGroup]="formLogin" (submit)="login()">
+<label>Usuario</label>
+<input type="text" formControlName="username"><br>
+
+<label>Pass</label>
+<input type="password" formControlName="password"><br>
+
+<button class="btn btn-primary" type="submit">Login</button>
+</form>
+
+<label>{{formLogin.valid}}</label>
