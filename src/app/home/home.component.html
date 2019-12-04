@@ -3,3 +3,7 @@
     role="alert">
     {{successMessage}}
 </div>
+
+<button class="btn btn-primary" type="submit" (click)="logout()">Log Out</button>
+<app-pokefilter></app-pokefilter>
+<app-poketable [pokemonestabla]="pokeService.pokemones"></app-poketable>

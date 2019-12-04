@@ -6,12 +6,16 @@ import { LoginComponent } from './login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { AppRoutes } from './app.route';
+import { PoketableComponent } from './poketable/poketable.component';
+import { PokefilterComponent } from './pokefilter/pokefilter.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HomeComponent,
+    PoketableComponent,
+    PokefilterComponent,
   ],
   imports: [
     BrowserModule,

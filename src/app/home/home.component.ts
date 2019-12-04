@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from '@angular/router';
+import { ActiveUserService } from '../active-user.service';
+import { PokemonesService } from '../pokemones.service';
+import { Pokemon } from '../data-class';
 
 @Component({
   selector: 'app-home',
@@ -7,13 +11,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  public successMessage :string;
+  public successMessage :string
 
-  constructor() { 
+
+  constructor( private router: Router,
+              private activeUser: ActiveUserService,
+              private pokeService: PokemonesService) {
     this.successMessage="exitoso"
+
   }
 
   ngOnInit() {
+    this.successMessage=this.activeUser.user + "estas logueado"
+    this.pokeService.getPokemones()
+  }
+
+  logout(){
+    this.activeUser.logout()
+    this.router.navigateByUrl("login")
   }
 
 }
