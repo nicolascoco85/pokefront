@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit {
                 this.errorMessage = ""
                 this.successMessage = "Logueado con exito papá"
                 this.activeUser.setUser(a.data)
-                this.router.navigateByUrl("home")
+                this.router.navigateByUrl("")
             }else{
                 this.errorMessage = "Credenciales invalidas"
             }

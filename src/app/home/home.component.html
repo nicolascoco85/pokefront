@@ -3,7 +3,8 @@
     role="alert">
     {{successMessage}}
 </div>
-
 <button class="btn btn-primary" type="submit" (click)="logout()">Log Out</button>
-<app-pokefilter></app-pokefilter>
-<app-poketable [pokemonestabla]="pokeService.pokemones"></app-poketable>
+<button class="btn btn-secondary" type="submit" routerLink="/">Home</button>
+<button class="btn btn-info" type="submit" (click)="goToPokemones()">Pokemones</button>
+<button class="btn btn-dark" type="submit" (click)="goToEntrenadores()">Entrenadores</button>
+<router-outlet></router-outlet>

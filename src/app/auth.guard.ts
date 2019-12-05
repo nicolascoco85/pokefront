@@ -18,7 +18,7 @@ export class AuthGuard implements CanActivate {
       //si esta logueado puede acceder
       console.log(next.url.toString())
       switch (next.url.toString()) {
-        case "home":
+        case "":
             if(this.activeUser.isLogued())
             {
               return true
@@ -29,7 +29,7 @@ export class AuthGuard implements CanActivate {
         case "login":
             if(this.activeUser.isLogued())
             {
-              this.router.navigateByUrl("home")
+              this.router.navigateByUrl("")
               return false
             }
             return true

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import { ActiveUserService } from '../active-user.service';
-import { PokemonesService } from '../pokemones.service';
 import { Pokemon } from '../data-class';
 
 @Component({
@@ -16,19 +15,26 @@ export class HomeComponent implements OnInit {
 
   constructor( private router: Router,
               private activeUser: ActiveUserService,
-              private pokeService: PokemonesService) {
+              ) {
     this.successMessage="exitoso"
 
   }
 
   ngOnInit() {
     this.successMessage=this.activeUser.user + "estas logueado"
-    this.pokeService.getPokemones()
+
   }
 
   logout(){
     this.activeUser.logout()
     this.router.navigateByUrl("login")
+  }
+  goToPokemones(){
+      this.router.navigateByUrl("pokemones")
+  }
+
+  goToEntrenadores(){
+      this.router.navigateByUrl("entrenadores")
   }
 
 }

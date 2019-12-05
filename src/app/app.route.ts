@@ -1,6 +1,8 @@
 import { Routes, RouterModule} from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from  './home/home.component';
+import { PokemonesComponent } from  './pokemones/pokemones.component';
+import { EntrenadoresComponent } from  './entrenadores/entrenadores.component';
 import { AuthGuard } from './auth.guard';
 
 const appRoutes: Routes = [
@@ -10,9 +12,19 @@ const appRoutes: Routes = [
         canActivate: [AuthGuard]
     },
     {
-        path: "home",
+        path: "",
         component: HomeComponent,
-        canActivate:[AuthGuard]
+        canActivate:[AuthGuard],
+        children:[
+          {
+              path: "pokemones",
+              component: PokemonesComponent
+          },
+          {
+              path: "entrenadores",
+              component: EntrenadoresComponent
+          }
+        ]
     },
     {
         path:"**",
