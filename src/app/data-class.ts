@@ -32,6 +32,10 @@ export  class AuthResponse{
   data: string
 }
 
+export class EntrenadorResponse{
+  data: Entrenador
+}
+
 export  class Entrenador{
   id: string
   nombre :string

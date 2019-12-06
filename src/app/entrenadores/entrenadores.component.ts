@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { EntrenadoresService } from '../entrenadores.service';
 import { EntrenadorModalComponent} from '../entrenador-modal/entrenador-modal.component';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {Subscription}  from 'rxjs'
 
 @Component({
   selector: 'app-entrenadores',
@@ -22,7 +23,18 @@ export class EntrenadoresComponent implements OnInit {
   nuevoEntrenador(){
     const modalRef= this.modalService.open(EntrenadorModalComponent)
     modalRef.componentInstance.name="nuevo entrenador"
-  //  modalRef.result.then()
+    modalRef.result
+    .then(
+        entrenador => {
+          const suscription: Subscription =      this.entrenadorService.createrEntrenador(entrenador).subscribe(
+              response => {
+                suscription.unsubscribe();
+                this.entrenadorService.getEntrenadores()
+              }
+            )
+      }
+    ).catch(_ => {})
+    console.log("asdaef")
   }
 
 }

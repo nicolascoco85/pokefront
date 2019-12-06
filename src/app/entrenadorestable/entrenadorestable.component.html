@@ -3,12 +3,19 @@
 <tr>
 <th >Nombre</th>
 <th >Pokemon</th>
+<th> Acciones</th>
 </tr>
 </thead>
 <tbody>
 <tr *ngFor="let entrenador of entrenadorestable">
 <th >{{entrenador.nombre}}</th>
 <th >{{entrenador.pokemon}}</th>
+<th>
+  <button type="button" name="button" (click)="delete(entrenador.id)">Delete</button>
+</th>
+<th>
+  <button type="button" name="button" (click)="edit(entrenador)">Edit</button>
+</th>
 
 </tr>
 </tbody>

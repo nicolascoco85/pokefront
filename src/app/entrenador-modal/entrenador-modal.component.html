@@ -6,7 +6,12 @@
 </div>
 <div class="modal-body">
   <p>Hello, {{name}}!</p>
+  <label>Nombre: </label><br>
+  <input type="text" [(ngModel)]="nombre" value=""><br>
+  <label>pokemon: </label><br>
+  <input type="number" [(ngModel)]="pokemon" value="1">
 </div>
 <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="guardar()">Save</button>
   <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
 </div>
